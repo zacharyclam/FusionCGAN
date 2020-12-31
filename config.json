@@ -1,0 +1,81 @@
+{
+  "name": "FusionCGAN",
+  "n_gpu": 1,
+  "netG": {
+    "type": "Generator",
+    "args": {}
+  },
+  "netD": {
+    "type": "Discriminator",
+    "args": {}
+  },
+  "train_data_loader": {
+    "type": "InputDataloader",
+    "args": {
+      "data_dir": "data/VOCdevkit/VOC2007/JPEGImages",
+      "batch_size": 8,
+      "patch_size": 32,
+      "shuffle": true,
+      "validation_split": 0.0,
+      "num_workers": 4
+    }
+  },
+  "test_data_loader": {
+    "type": "TestDataloader",
+    "args": {
+      "data_dir": "data/test",
+      "batch_size": 8,
+      "patch_size": 32,
+      "shuffle": false,
+      "validation_split": 0.0,
+      "num_workers": 2
+    }
+  },
+  "eval_data_loader": {
+    "type": "EvalDataloader",
+    "args": {
+      "data_dir": "data/lytro",
+      "batch_size": 4,
+      "patch_size": 0,
+      "shuffle": false,
+      "validation_split": 0.0,
+      "num_workers": 2
+    }
+  },
+  "optimizerG": {
+    "type": "Adam",
+    "args": {
+      "lr": 1e-4
+    }
+  },
+  "optimizerD": {
+    "type": "Adam",
+    "args": {
+      "lr": 1e-5
+    }
+  },
+  "loss": [
+    "mse_loss",
+    "l1_loss",
+    "ssim_loss"
+  ],
+  "metrics": [
+  ],
+  "lr_scheduler": {
+    "type": "StepLR",
+    "args": {
+      "step_size": 40,
+      "gamma": 0.5
+    }
+  },
+
+  "trainer": {
+    "epochs": 20,
+    "save_dir": "saved/",
+    "save_period": 5,
+    "verbosity": 2,
+    "monitor": "min val_loss",
+    "early_stop": 5,
+    "tensorboard": true
+  }
+}
