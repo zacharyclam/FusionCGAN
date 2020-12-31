@@ -63,7 +63,7 @@ def plot_blur(image, bounds):
 
 
 def generate_test_data(save_dir, voc_dir):
-    images_list = sorted(glob(os.path.join(voc_dir, "*.jpg")))[:100]
+    images_list = sorted(glob(os.path.join(voc_dir, "*.jpg")))[-1000:]
     idx = 0
     if not os.path.exists(os.path.join(save_dir, "ref")):
         os.makedirs(os.path.join(save_dir, "ref"))
@@ -99,7 +99,7 @@ def generate_test_data(save_dir, voc_dir):
 if __name__ == '__main__':
 
     arg = argparse.ArgumentParser(description="process test data parameters")
-    arg.add_argument('-s', "--save_path", default="data/test", type=str)
+    arg.add_argument('-s', "--save_path", default="data/test2", type=str)
     arg.add_argument('-v', "--voc_dir", default="data/VOCdevkit/VOC2007/JPEGImages", type=str)
 
     args = arg.parse_args()

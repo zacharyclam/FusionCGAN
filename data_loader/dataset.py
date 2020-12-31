@@ -25,8 +25,7 @@ class TrainDataset(data.Dataset):
 
         self.root = make_dataset(self.root)
 
-        self.root_paths = sorted(self.root)[:100]
-
+        self.root_paths = sorted(self.root)[:-1000] 
         self.transform = transforms.Compose([
             transforms.ToTensor()
         ])

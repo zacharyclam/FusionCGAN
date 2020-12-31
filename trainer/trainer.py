@@ -81,8 +81,6 @@ class Trainer(BaseTrainer):
             for p in self.discriminator.parameters():
                 p.requires_grad = True
 
-            # gen_fake = generator(input_concat)
-
             real_label = torch.ones((batch_size, patch_size, patch_size), dtype=torch.float32).to(self.device)
             fake_label = torch.zeros((batch_size, patch_size, patch_size), dtype=torch.float32).to(self.device)
 
