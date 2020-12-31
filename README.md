@@ -39,5 +39,5 @@ Dataset：[Pascal VOC 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtr
 
 - #### Model Weights：
 
-  [download url](https://pan.baidu.com/share/init?surl=jQ9DbgPn0PdIWARtXsrAuQ)		code：xvep
+  [download url](https://pan.baidu.com/s/1jQ9DbgPn0PdIWARtXsrAuQ)		code：xvep
  
